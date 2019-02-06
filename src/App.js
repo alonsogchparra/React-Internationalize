@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { IntlProvider, FormattedMessage } from 'react-intl';
+import { IntlProvider } from 'react-intl';
 
-import messages from './messages';
+import Button from './components/Button/Button';
+import Title from './components/Title/Title';
+import messages from './utilities/messages';
 import logo from './logo.svg';
 
 import './App.css';
@@ -12,15 +14,9 @@ class App extends Component {
     language: ''
   };
 
-  spanishChangedHandler = () => {
+  setLanguage = language => () => {
     this.setState({
-      language: 'es'
-    });
-  };
-
-  englishChangedHandler = () => {
-    this.setState({
-      language: 'en'
+      language: language
     });
   };
 
@@ -34,17 +30,17 @@ class App extends Component {
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
 
-
-            <h3>
-              <FormattedMessage
-                id='title.hello'
-                defaultMessage='The original message is: Hello to Everbody!!!'
-              />
-            </h3>
+            <Title />
 
             <div className="buttons">
-              <button onClick={this.englishChangedHandler}>English</button>
-              <button onClick={this.spanishChangedHandler}>Español</button>
+              <Button
+                label="English"
+                translate={this.setLanguage('en')}
+              />
+              <Button
+                label="Español"
+                translate={this.setLanguage('es')}
+              />
             </div>
 
             <a

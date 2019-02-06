@@ -1,0 +1,15 @@
+button {
+  margin: 1rem 2rem;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 3rem;
+  font-weight: bold;
+  background: #61dafb;
+}
+
+button:hover, button:focus {
+  background: white;
+  color: #4196ad;
+  transition: all .3s;
+  box-shadow: 0px 9px 25px 0px rgba(0,0,0,0.75);
+}
